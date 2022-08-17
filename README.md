@@ -11,5 +11,4 @@ CREATE TABLE students(
    email varchar(255) NOT NULL, 
    phone varchar(255) NOT NULL, 
    course varchar(255) NOT NULL
-
-)
+   )
