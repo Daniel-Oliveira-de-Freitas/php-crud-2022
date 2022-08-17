@@ -5,10 +5,10 @@ CREATE DATABASE blog;
 
 
 # criando a tabela estudante
-CREATE TABLE students(
-   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-   name varchar(255) NOT NULL, 
-   email varchar(255) NOT NULL, 
-   phone varchar(255) NOT NULL, 
-   course varchar(255) NOT NULL
-   )
+CREATE TABLE students (
+    id INT(6) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(100) NOT NULL,
+    course VARCHAR(100) NOT NULL
+)
