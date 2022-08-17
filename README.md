@@ -1,4 +1,5 @@
 # php-crud-2022
+<?php?>
 
 # criando o database
 CREATE DATABASE blog;
