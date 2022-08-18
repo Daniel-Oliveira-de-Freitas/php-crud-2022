@@ -12,7 +12,7 @@ require   'dbcon.php';
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     
-    <title>Student Create</title>
+    <title>Student Edit</title>
 </head>
 
 <body>
@@ -24,7 +24,7 @@ require   'dbcon.php';
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Student Add
+                        <h4>Student Edit
                             <a href="index.php" class="btn btn-danger float-end">back</a>
                         </h4>
                     </div>
@@ -41,14 +41,14 @@ require   'dbcon.php';
                             </div>
                             <div class="mb-3">
                                 <label>Student Phone</label>
-                                <input type="text" name="phone" class="form-control">
+                                <input type="numeric" name="phone" class="form-control">
                             </div>
                             <div class="mb-3">
                                 <label>Student Course</label>
                                 <input type="text" name="course" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name='save_student' class="btn btn-primary">Save Student</button>
+                                <button type="submit" name='edit_student' class="btn btn-primary">Edit Student</button>
                             </div>
 
                         </form>
