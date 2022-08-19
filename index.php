@@ -44,7 +44,7 @@ require   'dbcon.php';
                 <?php
                 $query = "SELECT * FROM students";
                 $query_run = mysqli_query($con, $query);
-
+                
                 if (mysqli_num_rows($query_run) > 0) {
                   foreach ($query_run as $student) {
                 ?>
