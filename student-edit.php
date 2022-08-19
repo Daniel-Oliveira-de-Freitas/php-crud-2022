@@ -8,10 +8,10 @@ require   'dbcon.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    
+
     <title>Student Edit</title>
 </head>
 
@@ -29,29 +29,49 @@ require   'dbcon.php';
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="code.php" method="POST">
-                            
-                        <div class="mb-3">
-                                <label>Student Name</label>
-                                <input type="text" name="name" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Student Email</label>
-                                <input type="email" name="email" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Student Phone</label>
-                                <input type="numeric" name="phone" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label>Student Course</label>
-                                <input type="text" name="course" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" name='edit_student' class="btn btn-primary">Edit Student</button>
-                            </div>
 
-                        </form>
+                        <?php
+                        if (isset($_GET['id'])) {
+
+                            $student_id = mysqli_real_escape_string($con, $_GET['id']);
+                            $query = "SELECT * FROM studens WHERE id='$student_id' ";
+                            $query_run = mysqli_query($con, $query);
+
+                            if (mysqli_num_rows($query_run) > 0) {
+
+                                $student = mysqli_fetch_array($query_run);
+
+                        ?>
+                                <form action="code.php" method="POST">
+                                    <input type="hidden" name="student_id" value="<?= $student['id']; ?>">
+                                    <div class="mb-3">
+                                        <label>Student Name</label>
+                                        <input type="text" name="name" value="<?= $student['name']; ?>" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Student Email</label>
+                                        <input type="email" name="email" value="<?= $$student['email']; ?>" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Student Phone</label>
+                                        <input type="numeric" name="phone" value="<?= $$student['phone']; ?>" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label>Student Course</label>
+                                        <input type="text" name="course" value="<?= $$student['course']; ?>" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="submit" name='update_student' class="btn btn-primary">Edit Student</button>
+                                    </div>
+
+                                </form>
+                        <?php
+                            } else {
+                                echo "<h4> No Such Id Found </h4>";
+                            }
+                        }
+                        ?>
+
                     </div>
                 </div>
             </div>
